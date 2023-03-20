@@ -1,5 +1,7 @@
 import "./ProductDescription.css";
-import cart from "../../assets/images/icon-cart.svg";
+import cart from "../../assets/images/icon-cart-button.svg";
+import minus from "../../assets/images/icon-minus.svg";
+import plus from "../../assets/images/icon-plus.svg";
 import { ProductData } from "../../ProductData";
 import { useState } from "react";
 
@@ -21,9 +23,22 @@ const ProductDescription = () => {
           <strong className="price-sale">$250.00</strong>
         </div>
         <div className="buttons">
-          <input type="number" value={cartItem}></input>
-          <img src={cart}></img>
-          <button>Add to cart</button>
+          <input type="number" value={cartItem} />
+          <div className="minus-plus">
+            <img
+              src={minus}
+              alt="minus"
+              onClick={() => setCartItem(cartItem - 1)}
+            ></img>
+            <img
+              src={plus}
+              alt="plus"
+              onClick={() => setCartItem(cartItem + 1)}
+            ></img>
+          </div>
+          <button>
+            <img src={cart} alt="cart"></img>Add to cart
+          </button>
         </div>
       </div>
     </div>
