@@ -1,0 +1,34 @@
+.productImage__container {
+    position: relative;
+    height: 40vh;
+}
+
+.productImage__container>img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.arrows {
+    padding: 0 0.8rem;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+
+}
+
+.arrow {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0.6rem 0.9rem;
+    cursor: pointer;
+}
+
+.arrow>img {
+    height: 12px;
+}
