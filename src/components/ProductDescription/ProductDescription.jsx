@@ -23,6 +23,7 @@ const ProductDescription = () => {
           <strong className="price-sale">$250.00</strong>
         </div>
         <div className="buttons">
+          <div className="input-wrapper">
           <input type="number" value={cartItem} />
           <div className="minus-plus">
             <img
@@ -35,6 +36,7 @@ const ProductDescription = () => {
               alt="plus"
               onClick={() => setCartItem(cartItem + 1)}
             ></img>
+          </div>
           </div>
           <button>
             <img src={cart} alt="cart"></img>Add to cart
