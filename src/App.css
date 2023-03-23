@@ -10,7 +10,6 @@
         flex-direction: row;
         justify-content: center;
         align-items:center;
-        gap:clamp(1rem,4.3vw , 10rem);
         height: 80vh;
     }
 }

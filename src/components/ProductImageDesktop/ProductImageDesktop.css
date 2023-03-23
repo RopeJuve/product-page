@@ -4,14 +4,16 @@
 
 @media screen and (min-width: 50em) {
     .desktop-container {
-        width: 60%;
+        max-width: 25rem;
         height: 50vh;
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        margin: 0 auto;
     }
 
     .img-to-show-wrapper {
+        cursor: pointer;
         height: 100%;
 
     }
@@ -51,8 +53,8 @@
   
 }
 
-@media screen and (min-width: 75em) {
+/* @media screen and (min-width: 75em) {
     .desktop-container {
-        width: 40%;
+        width: 30%;
     }
-}
+} */

@@ -5,10 +5,11 @@ import plus from "../../assets/images/icon-plus.svg";
 import { ProductData } from "../../ProductData";
 import { useState } from "react";
 
-const ProductDescription = () => {
-  const [cartItem, setCartItem] = useState(0);
+const ProductDescription = ({ addToCart, subtractFromCart, cartItem }) => {
+  const [items, setItems] = useState(0);
 
   const { subtitle, title, description, price } = ProductData;
+  
   return (
     <div className="productDescription__container">
       <div className="description-wrapper">
@@ -24,21 +25,25 @@ const ProductDescription = () => {
         </div>
         <div className="buttons">
           <div className="input-wrapper">
-          <input type="number" value={cartItem} />
-          <div className="minus-plus">
-            <img
-              src={minus}
-              alt="minus"
-              onClick={() => setCartItem(cartItem - 1)}
-            ></img>
-            <img
-              src={plus}
-              alt="plus"
-              onClick={() => setCartItem(cartItem + 1)}
-            ></img>
+            <input type="number" value={items} onChange={() => {}} />
+            <div className="minus-plus">
+              <img
+                src={minus}
+                alt="minus"
+                onClick={() => {
+                  if(items === 0) return;
+                  setItems(items - 1);
+                  subtractFromCart(cartItem);
+                }}
+              ></img>
+              <img
+                src={plus}
+                alt="plus"
+                onClick={() => setItems(items + 1)}
+              ></img>
+            </div>
           </div>
-          </div>
-          <button>
+          <button onClick={() => addToCart(items)} disabled={items === 0}>
             <img src={cart} alt="cart"></img>Add to cart
           </button>
         </div>
