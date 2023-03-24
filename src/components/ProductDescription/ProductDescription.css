@@ -111,6 +111,7 @@
     border: none;
     cursor: pointer;
     box-shadow: 0  1rem 1rem   hsl(25, 100%, 94%);
+    transition: opacity 0.3s ease-in-out;
 }
 
 .buttons > button:hover{

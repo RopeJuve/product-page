@@ -4,7 +4,7 @@ import prodImg from "../../assets/images/image-product-1.jpg";
 import deleteIcon from "../../assets/images/icon-delete.svg";
 import { ProductData } from "../../ProductData";
 
-const ModalCart = ({ modalCartShow, items }) => {
+const ModalCart = ({ modalCartShow, items, deleteCart }) => {
   const { title, price } = ProductData;
   const totalPrice = price * items;
   return (
@@ -16,18 +16,33 @@ const ModalCart = ({ modalCartShow, items }) => {
       <div className="title-wrapper">
         <h1>Cart</h1>
       </div>
-      <div className="item-wrapper">
-        <img src={prodImg} alt=""></img>
-        <div>
-          <p>{title}</p>
-          <p>
-            {`${price}.00 x ${items} `}
-            <strong>${totalPrice}.00</strong>
-          </p>
+      {items > 0 ? (
+        <>
+          <div className="item-wrapper">
+            <img src={prodImg} alt=""></img>
+            <div>
+              <p>{title}</p>
+              <p>
+                {`${price}.00 x ${items} `}
+                <strong>${totalPrice}.00</strong>
+              </p>
+            </div>
+            <img
+              className="delete"
+              src={deleteIcon}
+              alt=""
+              onClick={deleteCart}
+            />
+          </div>
+          <div className="checkout">
+            <button>Checkout</button>
+          </div>
+        </>
+      ) : (
+        <div className="empty-modal">
+          <p>Your cart is empty.</p>
         </div>
-        <img src={deleteIcon} alt="" />
-      </div>
-      <button>Checkout</button>
+      )}
     </div>
   );
 };

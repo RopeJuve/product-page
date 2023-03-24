@@ -15,9 +15,11 @@ function App() {
   const addToCart = (value) => setCartItems(value);
   const subtractFromCart = () => setCartItems(cartItems - 1);
 
+  const deleteCart = () => setCartItems(0);
+
   return (
     <>
-      <NavBar cartItems={cartItems} />
+      <NavBar cartItems={cartItems} deleteCart={deleteCart} />
       <div className="main-container">
         <ProductImage />
         <ProductImageDesktop handelModal={handelModal} />
