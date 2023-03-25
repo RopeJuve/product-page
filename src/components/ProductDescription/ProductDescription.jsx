@@ -9,7 +9,7 @@ const ProductDescription = ({ addToCart, subtractFromCart, cartItem }) => {
   const [items, setItems] = useState(0);
 
   const { subtitle, title, description, price } = ProductData;
-  
+
   return (
     <div className="productDescription__container">
       <div className="description-wrapper">
@@ -31,7 +31,7 @@ const ProductDescription = ({ addToCart, subtractFromCart, cartItem }) => {
                 src={minus}
                 alt="minus"
                 onClick={() => {
-                  if(items === 0) return;
+                  if (items === 0) return;
                   setItems(items - 1);
                   subtractFromCart(cartItem);
                 }}
@@ -43,7 +43,13 @@ const ProductDescription = ({ addToCart, subtractFromCart, cartItem }) => {
               ></img>
             </div>
           </div>
-          <button onClick={() => addToCart(items)} disabled={items === 0}>
+          <button
+            onClick={() => {
+              addToCart(items);
+              setItems(0);
+            }}
+            disabled={items === 0}
+          >
             <img src={cart} alt="cart"></img>Add to cart
           </button>
         </div>
